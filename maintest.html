@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>responsive web</title>
+    <meta name ="viewport" content="width-divice-width, initial-scale=1">
+    <style>
+
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            background-color: rgb(165, 164, 164);
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+                font-family: 'Book Antiqua', cursive;
+                font-size: 300%;
+                font-style: italic;
+                margin-bottom: 0;
+            }
+        
+        .t{
+            
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .sign{
+            position:absolute;
+            top: 15px;
+            right: 30px;
+            font-family:Verdana, Geneva, Tahoma, sans-serif
+        }
+        .wrapper >*{
+            border: 0.1px solid black;
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .wrapper{
+            height: 100%;
+            display: grid;
+            grid-template-columns: 200px 1fr 200px;
+            grid-template-rows: 100px 2fr 1fr 60px;
+            gap:20px;
+            grid-template-areas: 
+                "header header header"
+                "nav content side"
+                "nav content ad"
+                "footer footer footer"
+                
+            ;
+        }
+
+        .header{
+            grid-area: header;
+            border: 0px;
+            background-color: inherit;
+        }
+        .header {
+		
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		pointer-events: none;
+		user-select: none;
+		
+		
+		position: relative;
+		text-align: center;
+		z-index: 2;
+        cursor: default;
+	}
+
+     
+
+    .header a {
+        color: white;
+        border-bottom-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .header a:hover {
+        border-bottom-color: transparent;
+        color: rgba(252,221,190)
+    }
+    .header .logo {
+        
+        transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
+        pointer-events: auto;
+        border-style: solid;
+        border-color: #ffffff;
+        border-width: 5px ;
+        font-family: "Source Sans Pro", Helvetica, sans-serif;
+        font-weight: 900;
+        letter-spacing: 0.075em;
+        
+        padding: 1rem 1.75rem;
+        text-transform: uppercase;
+        visibility: visible;
+    }
+
+    .header .logo:hover {
+        border-color: black;
+        color: black ;
+        cursor:default;
+    }
+        .nav{
+            grid-area: nav;
+        }
+        .content{
+            grid-area: content;
+        }
+        .side{
+            grid-area: side;
+        }
+        .ad{
+            grid-area: ad;
+        }
+        .footer{
+            grid-area: footer;
+            height: auto;
+            
+        }
+        ul {
+                list-style-type: none;
+               
+                overflow: hidden;
+                margin: 0;
+                padding: 0;
+                
+            }
+        li{
+            margin: 0;
+            padding: 0;
+            border-radius: 50px;
+            border: 1px solid gray;
+            margin-top: 2px;
+           
+        }
+        li a {
+            text-decoration: none;
+            display: block;
+            padding: 14px 16px;
+            font-size: 17px;
+            color: black;
+            border-radius: 50px;
+            transition:0.2s ease-in-out, color 0.2s ease-in-out;
+            outline: none;
+            
+            
+        }
+        li a:hover {
+            background-color: gray;
+            border-bottom-color: transparent;
+            color: white !important;
+        }
+        li a.active {
+            background-color: rgba(252,221,190);
+            color: black;
+        }
+        li.dropdown {
+            display: block;
+            
+        }
+       
+
+ 
+        .dropdown-content {
+            position: absolute; /* 현재 흐름에서 제거되어 위치가 이동될 수 있음 */
+            left: 10%;
+            
+            
+            background-color: white;
+            border-radius: 10px;
+            border: 1px solid gray;
+            min-width: 160px;
+            z-index: 1;
+            display: none; /* 사라지게 만든다 */
+            
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            font-size: 12px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            
+        }
+        .dropdown:hover .dropdown-content { /* .dropdown위로 마우스 올렸을 때 .dropdown-content */
+            display: block;
+            float:left;
+        
+        }
+        .dropdown-content a:hover {
+            background-color: burlywood;
+        }
+  
+
+  
+        @media (max-width: 500px){
+            .wrapper{
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                grid-template-areas: 
+                "header"
+                "nav"
+                "content"
+                "side"
+                "ad"
+                "footer"
+                ;
+            }
+          
+        }
+        @media (max-width: 800px ) and (min-width: 501px){
+            .wrapper{
+                grid-template-columns: 200px 1fr;
+                grid-template-rows: 100px 1fr 50px 60px;
+                grid-template-areas: 
+                "header header"
+                "nav content"
+                
+                "side side"
+                "ad ad"
+                "footer footer"
+                ;
+            }
+            
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <div class ="wrapper">
+        <header class ="header">
+            <h1 class ="t"><a href="#" class="logo">Stock Managemt</a></h1>
+            <h4 class ="sign">20171910 유형찬</h4>
+
+        </header>
+        <nav class="nav">
+            <ul>
+                <li><a href="cafeprojectmain.html" class="active"><i class="material-icons">language</i>Home</a></li>
+                <li class="dropdown"><a href="javascript:void(0)">재고검색</a>
+                <div class="dropdown-content">
+                    <a href="stockbasicinput.php">재고 기본 정보추가</a>
+                    <a href="stockbasiclist.php">재고 기본정보조회</a>
+                    <a href="stocklist.php">창고 재고조회</a>
+                    <a href="receiveStockList.php">입고</a>
+                </div>
+                </li>
+
+                <li class="dropdown"><a href="javascript:void(0)">출고</a>
+                    <div class="dropdown-content">
+                        <a href="#">판매제품 정보추가</a>
+                        <a href="#">주문내역</a>
+                        <a href="#">주문취소내역</a>
+                    </div>
+                </li>
+
+                <li class="dropdown"><a href="javascript:void(0)">발주</a>
+                    <div class="dropdown-content">
+                        <a href="orderstockinput.php">발주 신청</a>
+                        <a href="orderstocklist.php">발주내역</a>
+                        
+                    </div>
+                </li>
+    
+                <li class="dropdown"><a href="javascript:void(0)">추가기능</a>
+                    <div class="dropdown-content">
+                        <a href="#">유통기한 만료 재고</a>
+                        <a href="#">사용기한 초과 재고</a>
+                        <a href="#">재고부족 알림</a>
+                        <a href="orderaccountinput.php">거래처 정보입력</a>
+                        <a href="orderaccountlist.php">거래처 정보조회</a>
+    
+                    </div>
+                </li>
+
+                <li><a href="#">히스토리</a></li>
+            </ul>
+            
+        </nav>
+        <article class = "content">
+            <section>
+                <h1>main article body</h1>
+                <p>int this setion , we display</p>
+            </section>
+        </article>
+        <aside class="side">sidebar</aside>
+        <div class = "ad">advertising</div>
+
+        <footer class="footer">
+            <section>
+                <section class="alt">
+                    <h3>Source Of</h3>
+                    <p>Namu Wiki</p>
+                </section>
+                <section>
+                    <h3>Phone</h3>
+                    <p>031-539-1114</p>
+                </section>
+            </section>
+            <section class="split contact">
+                <section class="alt">
+                    <h3>Address</h3>
+                    <p>Daejin University<br />
+                        11-1, Pocheon-si Gyeonggi-do  Republic of Korea </p>
+                </section>
+                
+                <section>
+                    <h3>Email</h3>
+                    <p><a href="mailto:" gudcks305@gmail.com>gudcks305@gmail.com</a></p>
+                </section>
+            
+            </section>
+        </footer>
+
+    </div>
+</body>
+</html>
